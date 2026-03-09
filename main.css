@@ -3,70 +3,59 @@
    AWFULSICK CUSTOM GLASS & NO-BORDER FIX (OVERWRITE)
    ============================================================ */
 
-/* 1. GLOBALER GLAS-LOOK (SCHARF, KEIN BLUR) */
-:root {
-    --background-shading: rgba(0, 0, 0, 0.4) !important;
-    --modal-shading: rgba(0, 0, 0, 0.6) !important;
-    --popout-shading: rgba(0, 0, 0, 0.5) !important;
-    --background-shading-percent: 0 !important;
-}
+/* ============================================================
+   AWFULSICK MEGA GLAS & NO-BORDER FIX (ULTIMATE OVERWRITE)
+   ============================================================ */
 
-/* Deaktiviert den Weichzeichner überall für maximale Schärfe */
-* {
+/* 1. ERZWINGE GLAS ÜBERALL (KEIN BLUR) */
+#app-mount .chat_f75fb0, 
+#app-mount .chatContent_f75fb0, 
+#app-mount .container_ee6116, 
+#app-mount .scroller_f35c3c,
+#app-mount .noChannel__01d5c,
+#app-mount .members_c8ffbb {
+    background: rgba(0, 0, 0, 0.4) !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
 }
 
-/* 2. CHAT-BEREICH TRANSPARENZ */
-.chat_f75fb0, 
-.chatContent_f75fb0, 
-.container_ee6116, 
-.scroller_f35c3c,
-.noChannel__01d5c {
-    background: rgba(0, 0, 0, 0.4) !important;
-}
-
-/* 3. ALLE STRICHE & RÄNDER KILLEN (SIDEBAR, GUILDS, HEADER) */
-.sidebar_a4d4d9, 
-.guilds_a4d4d9, 
-.container_cb15cc, 
-.members_c8ffbb,
-.membersWrap_c8ffbb,
-.chat_f75fb0,
-.sidebar_a4d4d9::after {
+/* 2. KILL ALLE STRICHE & BORDER (SIDEBAR, GUILDS, HEADER) */
+#app-mount .sidebar_a4d4d9, 
+#app-mount .guilds_a4d4d9, 
+#app-mount .container_cb15cc, 
+#app-mount .membersWrap_c8ffbb,
+#app-mount .chat_f75fb0,
+#app-mount .sidebar_a4d4d9::after,
+#app-mount .content_f75fb0::before,
+#app-mount .header_fd6364,
+#app-mount .container_fc4f04 {
     border: none !important;
     border-right: none !important;
     border-left: none !important;
+    border-top: none !important;
+    border-bottom: none !important;
     box-shadow: none !important;
+    display: flex; /* Manche Elemente brauchen das zum Anzeigen, aber ohne Border */
 }
 
-/* Header-Strich (Kanalname oben) weg */
-.container_fc4f04, 
-.content_f75fb0::before, 
-.header_fd6364 {
-    border: none !important;
-    box-shadow: none !important;
+/* Header-Strich spezifisch verstecken */
+#app-mount .content_f75fb0::before {
     display: none !important;
 }
 
-/* 4. MEMBERLISTE RECHTS (GLAS-LOOK) */
-.members_c8ffbb {
-    background: rgba(0, 0, 0, 0.2) !important;
-}
-
-/* 5. APP-HINTERGRUND CLEANUP */
+/* 3. APP HINTERGRUND REINIGEN */
 #app-mount::before {
     background: transparent !important;
+    backdrop-filter: none !important;
 }
 
-/* 6. SCROLLBARS (PASSEND ZUM BLAU) */
-::-webkit-scrollbar {
-    width: 8px !important;
-}
-::-webkit-scrollbar-thumb {
-    background: var(--hsl-main-color, #008cff) !important;
+/* 4. SCROLLBARS BLAU & CLEAN */
+#app-mount ::-webkit-scrollbar-thumb {
+    background: #008cff !important;
     border-radius: 10px !important;
+    border: none !important;
 }
-::-webkit-scrollbar-track {
+#app-mount ::-webkit-scrollbar-track {
     background: transparent !important;
+    border: none !important;
 }
